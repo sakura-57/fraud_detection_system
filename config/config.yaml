@@ -1,0 +1,78 @@
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  models_path: "data/models"
+  
+features:
+  categorical_cols:
+    - "ProductCD"
+    - "card4"
+    - "card6"
+    - "P_emaildomain"
+    - "R_emaildomain"
+    - "DeviceType"
+    - "M1"
+    - "M2"
+    - "M3"
+    - "M4"
+    - "M5"
+    - "M6"
+    - "M7"
+    - "M8"
+    - "M9"
+  
+  numerical_cols:
+    - "TransactionAmt"
+    - "TransactionAmt_log"
+    - "C1"
+    - "C2"
+    - "C3"
+    - "C4"
+    - "C5"
+    - "C6"
+    - "C7"
+    - "C8"
+    - "C9"
+    - "C10"
+    - "C11"
+    - "C12"
+    - "C13"
+    - "C14"
+    - "D1"
+    - "D2"
+    - "D3"
+    - "D4"
+    - "D5"
+    - "D6"
+    - "D7"
+    - "D8"
+    - "D9"
+    - "D10"
+    - "D11"
+    - "D12"
+    - "D13"
+    - "D14"
+    - "D15"
+  
+  engineered_cols:
+    - "Transaction_hour_sin"
+    - "Transaction_hour_cos"
+    - "is_weekend"
+    - "card1_amount_interaction"
+    - "email_match"
+    - "card1_transaction_count"
+    - "card1_velocity"
+
+model:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 5
+  scoring: "roc_auc"
+  
+xgboost:
+  n_estimators: 100
+  max_depth: 6
+  learning_rate: 0.1
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
